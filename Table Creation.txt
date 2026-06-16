@@ -1,0 +1,12 @@
+@EndUserText.label : 'Sales Order Header Details'
+@AbapCatalog.enhancement.category : #EXTENSIBLE_CHARACTER_NUMERIC
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #RESTRICTED
+define table zjat_hsales {
+
+  key ordid : zjat_ordid not null;
+  name      : zjat_name;
+  city      : zjat_city;
+
+}
