@@ -1,0 +1,68 @@
+CLASS zjat_db_operation DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+
+    INTERFACES if_oo_adt_classrun .
+  PROTECTED SECTION.
+  PRIVATE SECTION.
+ENDCLASS.
+
+
+
+CLASS zjat_db_operation IMPLEMENTATION.
+
+
+  METHOD if_oo_adt_classrun~main.
+  Data: ls_sales type zjat_hsales,
+        lt_sales type table of zjat_hsales.
+
+        ls_sales-ordid = 1.
+        ls_sales-name = 'Ram'.
+        ls_sales-city = 'Kolkata'.
+        append ls_sales to lt_sales.
+        clear: ls_sales.
+
+        ls_sales-ordid = 2.
+        ls_sales-name = 'Raj'.
+        ls_sales-city = 'Chennai'.
+        append ls_sales to lt_sales.
+        clear: ls_sales.
+
+
+        ls_sales-ordid = 3.
+        ls_sales-name = 'Raju'.
+        ls_sales-city = 'Jaipur'.
+        append ls_sales to lt_sales.
+        clear: ls_sales.
+
+
+        ls_sales-ordid = 4.
+        ls_sales-name = 'Shyam'.
+        ls_sales-city = 'Delhi'.
+        append ls_sales to lt_sales.
+        clear: ls_sales.
+
+        ls_sales-ordid = 5.
+        ls_sales-name = 'Ricky'.
+        ls_sales-city = 'Mumbai'.
+        append ls_sales to lt_sales.
+        clear: ls_sales.
+
+
+        if lt_sales is not initial.
+        MODIFY zjat_hsales from table @lt_sales.
+            if sy-subrc eq 0.
+                out->write( 'Data inserted successfully' ).
+            else.
+                out->write( 'Error in inserting data' ).
+            ENDIF.
+        ENDIF.
+
+
+
+
+  ENDMETHOD.
+ENDCLASS. What to Write in Commit Changes in Git Hub
